@@ -1,0 +1,35 @@
+CROSS_HOST="x86_64-w64-mingw32"
+inherit cross
+
+NAME="mingw64-x86_64-libcdio"
+VERSION=0.90
+RELEASE=1
+CATEGORY="Devel"
+SUMMARY="CD-ROM control library for Win64 toolchain"
+DESCRIPTION="The libcdio package contains a library which encapsulates CD-ROM
+reading and control. Applications wishing to be oblivious of the OS- and
+device-dependent properties of a CD-ROM can use this library. Also included is
+a library for working with ISO-9660 filesystems. Some support for disk image
+types like CDRWin's BIN/CUE format, cdrdao's TOC format, and Nero's NRG format
+are available. Therefore, applications that use this library also have the
+ability to read disc images as though they were CD's."
+HOMEPAGE="http://www.gnu.org/software/libcdio/"
+SRC_URI="mirror://gnu/libcdio/libcdio-${VERSION}.tar.gz"
+SRC_DIR="libcdio-${VERSION}"
+PATCH_URI="0.90-mingw-w64.patch"
+
+DISTCLEANFILES="include/cdio/cdio_config.h include/cdio/version.h m4/*.m4"
+DIFF_EXCLUDES="test *.1"
+
+CYGCONF_ARGS="
+	--disable-example-progs
+	--disable-vcd-info
+	--without-versioned-libs
+"
+
+src_install() {
+	cd ${B}
+	cyginstall bin_PROGRAMS= man_MANS= INFO_DEPS=
+}
+
+KEEP_LA_FILES="none"
