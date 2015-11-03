@@ -2,7 +2,7 @@ CROSS_HOST="x86_64-w64-mingw32"
 inherit cross
 
 NAME="mingw64-x86_64-libcdio"
-VERSION=0.90
+VERSION=0.93
 RELEASE=1
 CATEGORY="Devel"
 SUMMARY="CD-ROM control library for Win64 toolchain"
@@ -16,7 +16,6 @@ ability to read disc images as though they were CD's."
 HOMEPAGE="http://www.gnu.org/software/libcdio/"
 SRC_URI="mirror://gnu/libcdio/libcdio-${VERSION}.tar.gz"
 SRC_DIR="libcdio-${VERSION}"
-PATCH_URI="0.90-mingw-w64.patch"
 
 DISTCLEANFILES="include/cdio/cdio_config.h include/cdio/version.h m4/*.m4"
 DIFF_EXCLUDES="test *.1"
