@@ -2,7 +2,7 @@ CROSS_HOST="x86_64-w64-mingw32"
 inherit cross
 
 NAME="mingw64-x86_64-libcdio"
-VERSION=0.94
+VERSION=2.0.0
 RELEASE=1
 CATEGORY="Devel"
 SUMMARY="CD-ROM control library for Win64 toolchain"
@@ -30,5 +30,3 @@ src_install() {
 	cd ${B}
 	cyginstall bin_PROGRAMS= man_MANS= INFO_DEPS=
 }
-
-KEEP_LA_FILES="none"
